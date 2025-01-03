@@ -10,15 +10,21 @@ This is a small web app template and data package to create simple study flip ca
 
 ### Dependencies
 1. Java 8 JDK (any version)
-2. 
+2. Node Package Manager (npm)
 
 
 ### Why Write This?
-Just like many of my other projects, my reason is to **learn**.  React is a very popular Java / ECMA script library, and while I used to program almost exclusively in Java 8 for nearly a *decade*, its been some time since I've used that skill.  Even more importantly, I've never used java in a web development context.
+Just like many of my other projects, my reason is to **learn** the following: 
+1. advanced javascript
+2. React
+3. Java as a web backend 
+
+React is a very popular Java / ECMA script library.  It utilizes many advanced, and modern features of the java script language.  As for Java; I used to program almost exclusively in Java 8 for nearly a *decade*, but its been some time since I've used that skill.  More importantly, I've never used java in a web development context.
 
 
 ### Flip Card File Format
 Each flip card is represented as an individual json file, stored in a sub-folder under the data folder.  So, your flip card stack for studying intermediate single variable calculus would be stored in a folder, perhaps called 'single-variable-calculus-practice'.  In that folder, you'd also have a single extra card called 'topic.json', which should contain meta data / description info about that flip card stack.  Card Order is determined by alphabetical sorting order of the card file names.  Perhaps the easiest way to enforce an ordering is to simply number the cards in their file names.  Ex. card1.json, card2.json, card3.json.
+
 
 #### Normal Flip Card File example
 ```json

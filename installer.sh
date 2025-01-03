@@ -5,7 +5,7 @@ originalDirectory="$(pwd)"
 #load dependencies
 sudo apt install openjdk-8 npm
 
-cd binaries/
+cd "jar-dependencies/"
 wget -O "json-20241224.jar" https://search.maven.org/remotecontent?filepath=org/json/json/20241224/json-20241224.jar
 cd "$originalDirectory"
 

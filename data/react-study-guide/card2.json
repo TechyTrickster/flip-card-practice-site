@@ -1,0 +1,4 @@
+{
+    "front": "What is transpiling?",
+    "back": "Transpiling is not compiling: our code isn’t compiled to binary. Instead, it’s transpiled into syntax that can be interpreted by a wider range of browsers. Also, JavaScript now has source code, meaning that there will be some files that belong to your project that don’t run in the browser. From Learning React, by Banks and Porcello, O'Reilly Media Inc, 2017, (Chapter 1. Welcome to React, near Transpiling ES6)"
+}

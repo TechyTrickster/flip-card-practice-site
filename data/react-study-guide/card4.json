@@ -1,0 +1,4 @@
+{
+    "front": "What is The Spread Operator?",
+    "back": "The spread operator is three dots (...) that perform several different tasks. First, the spread operator allows us to combine the contents of arrays.  The spread operator can also be used to get some, or the rest, of the items in the array.  We can also use the spread operator to collect function arguments as an array.  The spread operator can also be used for objects.  Using the spread operator with objects is similar to using it with arrays.  From Learning React, by Banks and Porcello, O'Reilly Media Inc, 2017, (Chapter 1. Welcome to React, near The Spread Operator)"
+}

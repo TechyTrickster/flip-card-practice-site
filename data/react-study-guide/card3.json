@@ -1,0 +1,4 @@
+{
+    "front": "What is Destructuring Assignment?",
+    "back": "The destructuring assignment allows you to locally scope fields within an object and to declare which values will be used. From Learning React, by Banks and Porcello, O'Reilly Media Inc, 2017, (Chapter 1. Welcome to React, near Transpiling ES6)"
+}

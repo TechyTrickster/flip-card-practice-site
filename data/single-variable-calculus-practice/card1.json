@@ -1,0 +1,4 @@
+{
+    "front": "## What is a Derivative of a Function at a Point?",
+    "back": "The derivative of the function f(x) at a, denoted f`(a) is defined by f`(a) = lim[x -> a]((f(x) - f(a)) / (x - a)).  From Calculus Volume 1 By Herman and Strang, OpenStax, pg 220"
+}

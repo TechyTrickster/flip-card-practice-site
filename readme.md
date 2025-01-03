@@ -11,6 +11,8 @@ This is a small web app template and data package to create simple study flip ca
 ### Dependencies
 1. Java 8 JDK (any version)
 2. Node Package Manager (npm)
+3. JSON-java (library)
+4. a debian based system
 
 
 ### Why Write This?

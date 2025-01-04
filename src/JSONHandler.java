@@ -26,6 +26,7 @@ class SerialHandler {
 }
 
 
+
 public class JSONHandler
 {
     private SerialHandler serialize;
@@ -52,6 +53,8 @@ public class JSONHandler
     public String serialize(String input)  {return(serialize.applyRules(input));}
     public String deserialize(String input)  {return(deserialize.applyRules(input));}
 }
+
+
 
 class ReplacementRule
 {

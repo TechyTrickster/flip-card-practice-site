@@ -60,6 +60,7 @@ public class Main
                         {
                             String validStackPath = bufferDir.toString();
                             CardStack buffer = generator.loadCards(validStackPath);
+                            buffer.loadCardSet();
                             collection.add(buffer);
                             break; //once the topic file is found, no other files in the current folder need examination
                         }

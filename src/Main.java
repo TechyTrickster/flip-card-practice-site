@@ -15,7 +15,7 @@ import com.sun.net.httpserver.HttpServer;
 
 public class Main 
 {
-    static CardStack[] stacks = stackDiscovery("../data");
+    static CardStack[] stacks = stackDiscovery("./data");
     public static void main(String[] args) throws Exception {
         
         HttpServer server = HttpServer.create(new InetSocketAddress(8000), 50);
@@ -29,7 +29,19 @@ public class Main
     private static CardStack[] stackDiscovery(String rootFolder)
     {
         CardStack[] output;
-        File location = new File(rootFolder);
+        File location = null;
+        try
+        {
+            System.out.println(System.getProperty("user.dir"));
+            location = new File(rootFolder).getCanonicalFile();
+            System.out.println(location.getCanonicalPath());
+        }
+        catch(Exception e)
+        {
+            System.err.println(e);
+            System.out.println("couldn't resolve data folder path");
+        }
+        
         String[] possibilities = location.list();
         ArrayList<CardStack> collection = new ArrayList<CardStack>();
         LoadData generator = new LoadData();
@@ -49,7 +61,9 @@ public class Main
                         catch(Exception e)
                         {
                             System.out.println("couldn't load card stack: " + element);
+                            System.out.println("fatal error!");
                             System.err.println(e);
+                            System.exit(-1);
                         }
                         
                     }

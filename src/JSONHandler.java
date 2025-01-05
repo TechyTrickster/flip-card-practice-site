@@ -36,16 +36,19 @@ public class JSONHandler
     public JSONHandler()
     {
         String[] serialRules = {""};
-        String[] serialReplacements = {};
-        String[] deserialRules = {};
-        String[] deserialReplacements = {};
+        String[] serialReplacements = {""};
+        String[] deserialRules = {"\\\"", "\\\n", "\\\t", "\\/"};
+        String[] deserialReplacements = {"\"", "\n", "\t", "/"};
         try
         {
             serialize = new SerialHandler(serialRules, serialReplacements);
             deserialize = new SerialHandler(deserialRules, deserialReplacements);
         }
         catch(Exception e)
-        {System.out.println("IMPOSSIBLE!");}  //this exception shouldn't be reachable unless the embedded constants are wrong.
+        {
+            System.err.println(e);
+            System.out.println("IMPOSSIBLE!");
+        }  //this exception shouldn't be reachable unless the embedded constants are wrong.
         
     }
 

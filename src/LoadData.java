@@ -10,7 +10,7 @@ public class LoadData {
     private HtmlRenderer hLink;
     private JSONHandler sLink;
 
-    public LoadData(String folder)
+    public LoadData()
     {
         pLink = Parser.builder().build();
         hLink = HtmlRenderer.builder().build();
@@ -31,7 +31,7 @@ public class LoadData {
         { //extract the topic file and seperate it from all the other files
             String element = localFiles[index];
             if(element.contains("topic.json"))
-            {topicString = new String(Files.readAllBytes((new File(element)).toPath()), StandardCharsets.UTF_8);}  //find some neat way to reuse this?
+            {topicString = Main.loadFile(element);}  //find some neat way to reuse this?
             else
             {
                 normalCards[tracker] = element;

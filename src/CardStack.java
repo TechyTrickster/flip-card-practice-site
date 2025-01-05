@@ -1,6 +1,3 @@
-import java.io.File;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
@@ -26,7 +23,7 @@ public class CardStack extends JSONBasedObjectReader{
             try
             {
                 
-                String data = new String(Files.readAllBytes((new File(element)).toPath()), StandardCharsets.UTF_8);
+                String data = Main.loadFile(element);
                 Card bufferCard = new Card(data, pLink, hLink, sLink);
                 collection[index] = bufferCard;
             }

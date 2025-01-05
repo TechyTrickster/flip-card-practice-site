@@ -1,6 +1,4 @@
 import java.io.File;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;

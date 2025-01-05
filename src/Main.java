@@ -1,5 +1,6 @@
 //uses the code sample at https://docs.oracle.com/en/java/javase/17/docs/api/jdk.httpserver/com/sun/net/httpserver/package-summary.html as a base
 //uses a suggested fix from BalusC at https://stackoverflow.com/questions/3732109/simple-http-server-in-java-using-only-java-se-api
+//TODO need to replicate the context aware root folder detection boiler plate that I created in python for java.  different java test tools seem to have different ideas about what the executing directory should actually be.
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
@@ -87,19 +88,25 @@ public class Main
         @Override
         public void handle(HttpExchange t) throws IOException
         {
-            String pagePath = "../src-web/html/quiz.html";
-            String errorPath = "../src-web/html/notFound.html";
+            System.out.println("stack");
+            System.out.println(t.getRequestURI());
+            String pagePath = "./src-web/html/quiz.html";
+            String errorPath = "./src-web/html/notFound.html";
             String chosenStack = t.getRequestURI().toString().replace("/stack/", "");
             CardStack selected = findStack(chosenStack);
             String response = "";
 
             if(selected == null)
             {
+                System.out.println("error!");
                 response = loadFile(errorPath);
             }
             else
             {
+                System.out.println("real page");
                 response = loadFile(pagePath);
+                String dataBlob = generateStackHTMLBlob(selected);
+                response = response.replace("cardData", dataBlob);
             }
 
             
@@ -117,7 +124,7 @@ public class Main
         @Override
         public void handle(HttpExchange t) throws IOException
         {
-            String pagePath = "../src-web/html/home.html";
+            String pagePath = "./src-web/html/home.html";
             String response = loadFile(pagePath);
             t.sendResponseHeaders(200, response.getBytes(StandardCharsets.UTF_8).length);
             OutputStream os = t.getResponseBody();
@@ -131,7 +138,10 @@ public class Main
     {
         CardStack output = null;
         for(CardStack element : stacks)
-        {if(element.getUrl() == name)  {output = element;}}
+        {
+            System.out.println(element.getUrl());
+            if(element.getUrl().equals(name))  {output = element; break;}
+        }
         return(output);
     }
 
@@ -140,6 +150,18 @@ public class Main
     {
         Path handle = new File(name).getCanonicalFile().toPath();
         String output = new String(Files.readAllBytes(handle), StandardCharsets.UTF_8);                        
+        return(output);
+    }
+
+
+    public static String generateStackHTMLBlob(CardStack input)
+    {
+        String output = "";
+        for(Card element : input.getCollection())
+        {
+            String buffer = element.getFront() + "\n" + element.getBack();
+            output = output + "\n" + buffer;
+        }
         return(output);
     }
 }

@@ -21,6 +21,7 @@ class SerialHandler {
         for(int index = 0; index < rules.length; index++)
         {buffer = rules[index].execute(buffer);}
         
+        output = buffer;
         return(output);
     }
 }

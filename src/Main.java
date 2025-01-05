@@ -60,7 +60,7 @@ public class Main
                         {
                             String validStackPath = bufferDir.toString();
                             CardStack buffer = generator.loadCards(validStackPath);
-                            buffer.loadCardSet();
+                            buffer.loadCardSet(); //TODO should make this a background, non-halting process to improve startup time on larger collections.
                             collection.add(buffer);
                             break; //once the topic file is found, no other files in the current folder need examination
                         }
@@ -131,7 +131,7 @@ public class Main
     {
         CardStack output = null;
         for(CardStack element : stacks)
-        {if(element.getTitle() == name)  {output = element;}}
+        {if(element.getUrl() == name)  {output = element;}}
         return(output);
     }
 

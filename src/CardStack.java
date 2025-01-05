@@ -4,6 +4,7 @@ import org.commonmark.renderer.html.HtmlRenderer;
 public class CardStack extends JSONBasedObjectReader{    
     private String title;
     private String description;
+    private String url;
     private Card[] collection;
     private int cardCount;
 
@@ -13,6 +14,7 @@ public class CardStack extends JSONBasedObjectReader{
         super(topicData, pLink, hLink, sLink);
         title = processPipeline("title");
         description = processPipeline("description");
+        url = processPipeline("url");
         cardCount = fileList.length;
         collection = new Card[cardCount];
 
@@ -41,6 +43,7 @@ public class CardStack extends JSONBasedObjectReader{
     
     public String getTitle()  {return title;}    
     public String getDescription()  {return description;}    
+    public String getUrl()  {return url;}
     public Card[] getCollection()  {return collection;}
 
 

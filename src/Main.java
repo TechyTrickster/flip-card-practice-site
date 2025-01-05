@@ -77,7 +77,7 @@ public class Main
             }
         }
         
-        output = (CardStack[]) collection.toArray();
+        output = collection.toArray(new CardStack[collection.size()]);
         return(output);
     }
 

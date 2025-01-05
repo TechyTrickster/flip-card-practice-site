@@ -14,7 +14,7 @@ public class CardStack extends JSONBasedObjectReader{
         super(topicData, pLink, hLink, sLink);
         title = processPipeline("title");
         description = processPipeline("description");
-        url = processPipeline("url");
+        url = jsonForm.getString("url"); //bit of a bodge, but it will work for now
         cardCount = fileList.length;
         collection = new Card[cardCount];
 

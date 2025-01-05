@@ -48,7 +48,7 @@ public class Main
 
         for(String element : possibilities)
         {
-            File bufferDir = new File(element);
+            File bufferDir = new File(location.toString() + File.separator + element);
             if(bufferDir.isDirectory())  
             {
                 String[] deepDirs = bufferDir.list();
@@ -57,7 +57,12 @@ public class Main
                     if(strDir.contains("topic.json"))
                     {
                         try
-                        {collection.add(generator.loadCards(strDir));}
+                        {
+                            String validStackPath = bufferDir.toString();
+                            CardStack buffer = generator.loadCards(validStackPath);
+                            collection.add(buffer);
+                            break; //once the topic file is found, no other files in the current folder need examination
+                        }
                         catch(Exception e)
                         {
                             System.out.println("couldn't load card stack: " + element);

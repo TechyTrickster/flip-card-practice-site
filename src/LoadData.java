@@ -31,10 +31,10 @@ public class LoadData {
         { //extract the topic file and seperate it from all the other files
             String element = localFiles[index];
             if(element.contains("topic.json"))
-            {topicString = Main.loadFile(element);}  //find some neat way to reuse this?
+            {topicString = Main.loadFile(targetFolder.toString() + File.separator + element);}  //find some neat way to reuse this?
             else
             {
-                normalCards[tracker] = element;
+                normalCards[tracker] = targetFolder.toString() + File.separator + element;
                 tracker++;
             }
         }

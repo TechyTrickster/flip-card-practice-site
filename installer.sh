@@ -4,6 +4,8 @@ originalDirectory="$(pwd)"
 
 #load dependencies
 sudo apt install openjdk-8 npm
+sudo npm webpack babel-core babel-loader babel-preset-env babel-preset-react babel-preset-stage-0 --save-dev
+sudo npm react react-dom -save
 
 cd "jarDependencies/"
 wget -O "json_java.jar" https://search.maven.org/remotecontent?filepath=org/json/json/20241224/json-20241224.jar
